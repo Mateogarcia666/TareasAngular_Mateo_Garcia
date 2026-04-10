@@ -6,10 +6,29 @@ import { Error } from './pages/error/error';
 import { SobreMi } from './pages/sobre-mi/sobre-mi';
 
 export const routes: Routes = [
-    { path: 'bienvenida', component: Bienvenida },
-    {path:'', redirectTo: 'bienvenida', pathMatch: 'full'},
-    { path: 'login', component: Login },
-    { path: 'registro', component: Registro },
-    { path: 'sobre-mi', component: SobreMi },
-    { path: '**', component: Error } 
+    {
+    path: '',
+    loadComponent: () =>
+        import('./pages/bienvenida/bienvenida').then((m) => m.Bienvenida),
+    },
+    {
+    path: 'login',
+    loadComponent: () =>
+        import('./pages/login/login').then((m) => m.Login),
+    },
+    {
+    path: 'registro',
+    loadComponent: () =>
+        import('./pages/registro/registro').then((m) => m.Registro),
+    },
+    {
+    path: 'sobre-mi',
+    loadComponent: () =>
+        import('./pages/sobre-mi/sobre-mi').then((m) => m.SobreMi),
+    },
+    {
+    path: '**',
+    loadComponent: () =>
+        import('./pages/error/error').then(m => m.Error),
+    }
 ];
