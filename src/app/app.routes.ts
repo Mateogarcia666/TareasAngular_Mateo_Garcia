@@ -4,6 +4,7 @@ import { Registro } from './pages/registro/registro';
 import { Bienvenida } from './pages/bienvenida/bienvenida';
 import { Error } from './pages/error/error';
 import { SobreMi } from './pages/sobre-mi/sobre-mi';
+import { Perfil } from './pages/perfil/perfil';
 
 export const routes: Routes = [
     {
@@ -27,8 +28,13 @@ export const routes: Routes = [
         import('./pages/sobre-mi/sobre-mi').then((m) => m.SobreMi),
     },
     {
+    path: 'perfil',
+    loadComponent: () => 
+        import('./pages/perfil/perfil').then((m) => m.Perfil)
+    },
+    {
     path: '**',
     loadComponent: () =>
-        import('./pages/error/error').then(m => m.Error),
+        import('./pages/error/error').then((m) => m.Error),
     }
 ];
