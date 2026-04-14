@@ -1,1 +1,37 @@
-<h1>Este es mi perfil de Github</h1>
+<h2>Este es mi perfil de Github</h2>
+    @if (usuarioRecibido()) {
+
+    <p>{{ usuarioRecibido().name}}</p>
+
+    <img 
+        [src]="usuarioRecibido().avatar_url" 
+        class="rounded-circle mb-3" 
+        width="150"
+    >
+
+    <p class="text-secondary">
+        {{ usuarioRecibido().bio }}
+    </p>
+
+    <a 
+    [href]="usuarioRecibido().html_url" 
+    target="_blank" 
+    class="btn btn-primary"
+    >
+    Ver GitHub
+    </a>
+
+    <h2 class="text-center mt-4">Libro destacado</h2>
+
+<div class="container mt-5 d-flex justify-content-center">
+
+    <app-card
+        [imagen]="libro.imagen"
+        [titulo]="libro.titulo"
+        [subtitulo]="libro.subtitulo"
+        [link]="libro.link"
+        textoLink="Ver libro"
+    ></app-card>
+
+</div>
+}

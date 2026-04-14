@@ -1,1 +1,10 @@
-<p>card works!</p>
+
+<div id="card">
+    <img [src]="this.imagen()" />
+    <div>
+        <h1>{{ this.titulo() }}</h1>
+        <h2>{{ this.subtitulo() }}</h2>
+
+        <button (click)="cardClickeada()">{{ this.textoLink() }}</button>
+    </div>
+</div>
